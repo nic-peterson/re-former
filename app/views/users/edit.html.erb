@@ -1,0 +1,26 @@
+<h2>Form_with</h2>
+
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+    <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @user, local: true do |form| %>
+  <%= form.label :username %>
+  <%= form.text_field :username %>
+
+  <%= form.label :email %>
+  <%= form.text_field :email %>
+
+  <%= form.label :password %>
+  <%= form.password_field :password %>
+
+  <%= form.submit @user.new_record? ? "Create User" : "Update User" %>
+<% end %>

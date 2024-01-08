@@ -1,0 +1,12 @@
+<h1>Users</h1>
+
+<ul>
+  <% @users.each do |user| %>
+    <p>
+    Username: <%= user.username %><br>
+    Email: <%= user.email %><br>
+
+    <%= link_to 'Edit', edit_user_path(user) %>
+  </p>
+  <% end %>
+</ul>
