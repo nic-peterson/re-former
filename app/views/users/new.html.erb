@@ -27,6 +27,15 @@
 <% end %>
 
 <h2>Form_with</h2>
+<%= form_with model: @user, local: true do |form| %>
+  <%= form.label :username %>
+  <%= form.text_field :username %>
 
+  <%= form.label :email %>
+  <%= form.text_field :email %>
 
+  <%= form.label :password %>
+  <%= form.password_field :password %>
 
+  <%= form.submit "Create User" %>
+<% end %>

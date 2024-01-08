@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
     if @user.save
       redirect_to new_user_url, notice: "User created successfully"
+
     else
       render :new, status: :unprocessable_entity
     end
